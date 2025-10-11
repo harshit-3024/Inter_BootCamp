@@ -5,3 +5,6 @@ yfinance
 scikit-learn
 xgboost
 ipykernel
+nbformat
+notebook
+jupyter
