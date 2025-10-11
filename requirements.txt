@@ -4,3 +4,4 @@ plotly
 yfinance
 scikit-learn
 xgboost
+ipykernel
