@@ -23,6 +23,12 @@ xgboost
 
 ipykernel
 
+nbformat
+
+notebook
+
+jupyter
+
 ## Install the necessary libraries using pip:
 
 Bash
