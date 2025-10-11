@@ -10,10 +10,15 @@ finalv5.ipynb: This notebook runs an intraday backtesting simulation on the rank
 This project requires Python 3 and the following libraries:
 
 pandas
+
 numpy
+
 yfinance
+
 plotly
+
 scikit-learn
+
 xgboost
 
 ## Install the necessary libraries using pip:
