@@ -21,6 +21,8 @@ scikit-learn
 
 xgboost
 
+ipykernel
+
 ## Install the necessary libraries using pip:
 
 Bash
