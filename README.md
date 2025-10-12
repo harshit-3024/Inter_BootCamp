@@ -31,8 +31,6 @@ jupyter
 
 ## Install the necessary libraries using pip:
 
-Bash
-
 pip install -r requirements.txt
 
 
