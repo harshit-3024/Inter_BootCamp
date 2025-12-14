@@ -1,6 +1,3 @@
-Here is the complete README code in a single copy-paste block.
-
-````markdown
 # 📈 Stock Momentum Prediction & Intraday Backtesting System
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)
@@ -17,12 +14,12 @@ This project operates in a strict two-stage pipeline to separate signal generati
 
 ```mermaid
 graph TD
-    A[Fetch Data (yfinance)] -->|History| B(generate_csvs.ipynb)
-    B -->|Feature Eng + XGBoost| C{Signal Generation}
-    C -->|Output Rankings| D[backtest_data_15min/]
-    E[combined_stock_data/] -->|15-min Intraday Data| F(finalv5.ipynb)
-    D -->|Daily Rankings| F
-    F -->|Backtest Engine| G[Metrics & Plotly Viz]
+    A["Fetch Data (yfinance)"] -->|History| B("generate_csvs.ipynb")
+    B -->|"Feature Eng + XGBoost"| C{"Signal Generation"}
+    C -->|"Output Rankings"| D["backtest_data_15min/"]
+    E["combined_stock_data/"] -->|"15-min Intraday Data"| F("finalv5.ipynb")
+    D -->|"Daily Rankings"| F
+    F -->|"Backtest Engine"| G["Metrics & Plotly Viz"]
 ````
 
 ### 1\. Signal Generation (`generate_csvs.ipynb`)
@@ -77,7 +74,7 @@ Ensure your directory is organized exactly as follows for the scripts to link co
 1.  **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/harshit-3024/Inter_BootCamp.git](https://github.com/harshit-3024/Inter_BootCamp.git)
+    git clone https://github.com/harshit-3024/Inter_BootCamp.git
     cd Inter_Bootcamp
     ```
 
