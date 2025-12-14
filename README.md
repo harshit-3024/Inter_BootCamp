@@ -1,35 +1,51 @@
-📈 Stock Momentum Prediction & Intraday Backtesting System
+Here is the complete README code in a single copy-paste block.
 
-A comprehensive Machine Learning-based trading system that identifies high-momentum stocks using XGBoost and technical analysis, specifically designed for 15-minute intraday intervals.
+````markdown
+# 📈 Stock Momentum Prediction & Intraday Backtesting System
 
-🚀 System Overview
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
 
-This project operates in a strict two-stage pipeline to separate signal generation from strategy testing:
+A comprehensive Machine Learning-based trading system that identifies high-momentum stocks using **XGBoost** and technical analysis, specifically designed for **15-minute intraday intervals**.
 
-1. Signal Generation (generate_csvs.ipynb)
+---
 
-Data Ingestion: Fetches historical market data using yfinance.
+## 🚀 System Overview
 
-Feature Engineering: Calculates 15+ technical indicators (RSI, MACD, etc.).
+This project operates in a strict two-stage pipeline to separate signal generation from strategy testing.
 
-ML Prediction: Uses an XGBoost model to score and rank stocks based on momentum probability.
+```mermaid
+graph TD
+    A[Fetch Data (yfinance)] -->|History| B(generate_csvs.ipynb)
+    B -->|Feature Eng + XGBoost| C{Signal Generation}
+    C -->|Output Rankings| D[backtest_data_15min/]
+    E[combined_stock_data/] -->|15-min Intraday Data| F(finalv5.ipynb)
+    D -->|Daily Rankings| F
+    F -->|Backtest Engine| G[Metrics & Plotly Viz]
+````
 
-Output: Generates daily ranking CSV files containing top picks, saved automatically to the backtest_data_15min/ directory.
+### 1\. Signal Generation (`generate_csvs.ipynb`)
 
-2. Backtesting Engine (finalv5.ipynb)
+  * **Data Ingestion:** Fetches historical market data using `yfinance`.
+  * **Feature Engineering:** Calculates 15+ technical indicators (RSI, MACD, etc.).
+  * **ML Prediction:** Uses an **XGBoost** model to score and rank stocks based on momentum probability.
+  * **Output:** Generates daily ranking CSV files automatically saved to `backtest_data_15min/`.
 
-Simulation: Reads the ranking files generated in Step 1.
+### 2\. Backtesting Engine (`finalv5.ipynb`)
 
-Intraday Logic: Loads 15-minute interval data from combined_stock_data/ to simulate realistic trade entries and exits.
+  * **Simulation:** Reads the ranking files generated in Step 1.
+  * **Intraday Logic:** Loads 15-minute interval data from `combined_stock_data/` to simulate realistic trade entries/exits.
+  * **Performance Metrics:** Calculates Sharpe Ratio, Max Drawdown, and Annualized Returns.
+  * **Visualization:** Generates interactive equity curves and trade logs using **Plotly**.
 
-Performance Metrics: Calculates Sharpe Ratio, Max Drawdown, and Annualized Returns.
+-----
 
-Visualization: Generates interactive equity curves and trade logs using Plotly.
-
-📂 Project Structure
+## 📂 Project Structure
 
 Ensure your directory is organized exactly as follows for the scripts to link correctly:
 
+```text
 ├── generate_csvs.ipynb       # [Step 1] Generates momentum rankings
 ├── finalv5.ipynb             # [Step 2] Runs the backtest simulation
 ├── backtest_data_15min/      # Output folder for Step 1 (Created automatically)
@@ -40,64 +56,68 @@ Ensure your directory is organized exactly as follows for the scripts to link co
 │   ├── BANKBARODA_NS.csv
 │   └── ...
 └── README.md
+```
 
+-----
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Language: Python 3.8+
+| Category | Technologies |
+| :--- | :--- |
+| **Language** | Python 3.8+ |
+| **Data Analysis** | Pandas, NumPy |
+| **ML & Stats** | XGBoost, Scikit-learn |
+| **Data Source** | yfinance |
+| **Visualization** | Plotly (Interactive), Matplotlib |
 
-Data Analysis: Pandas, NumPy
+-----
 
-Machine Learning: XGBoost, Scikit-learn
+## ⚙️ Installation
 
-Data Source: yfinance
+1.  **Clone the repository:**
 
-Visualization: Plotly (Interactive dashboards), Matplotlib
+    ```bash
+    git clone [https://github.com/harshit-3024/Inter_BootCamp.git](https://github.com/harshit-3024/Inter_BootCamp.git)
+    cd Inter_Bootcamp
+    ```
 
-Environment: Jupyter Notebook / Lab
+2.  **Install dependencies:**
 
-⚙️ Installation
+    ```bash
+    pip install pandas numpy xgboost yfinance plotly matplotlib
+    ```
 
-Clone the repository:
+-----
 
-git clone https://github.com/harshit-3024/Inter_BootCamp.git
-cd Inter_Bootcamp
+## 🏃‍♂️ Usage Guide
 
+### Step 1: Generate Signals
 
-Install the required dependencies:
+Open and run `generate_csvs.ipynb`.
 
-pip install pandas numpy xgboost yfinance plotly matplotlib
+> **Note:** This script will analyze historical data and populate the `backtest_data_15min/` folder with ranking files. Ensure you have an active internet connection for `yfinance`.
 
+### Step 2: Run Backtest
 
-🏃‍♂️ Usage Guide
+Open and run `finalv5.ipynb`.
 
-Step 1: Generate Signals
+1.  **Verify Data Path:** Ensure your local 15-minute intraday data is located in `combined_stock_data/`.
+2.  **Configure Parameters:** Adjust simulation settings in the "Configuration" cell.
+3.  **Analyze Results:** Run all cells to view the interactive dashboard.
 
-Open and run generate_csvs.ipynb.
+-----
 
-This script will analyze historical data and populate the backtest_data_15min/ folder with ranking files (e.g., momentum_ranking_2024-01-01.csv).
+## 📊 Key Features
 
-Note: Ensure you have an active internet connection for yfinance to fetch data.
+  * **Ensemble Learning:** Combines fundamental technical analysis with gradient boosting for robust predictions.
+  * **Realistic Backtesting:** Accounts for intraday volatility by using 15-minute granularity rather than just daily closing prices.
+  * **Custom Indicators:** Dedicated Indicators class for consistent calculation of RSI, Moving Averages, and Volatility across both notebooks.
 
-Step 2: Run Backtest
+-----
 
-Open and run finalv5.ipynb.
+## 📝 License
 
-Verify Data Path: Ensure your 15-minute intraday data is located in combined_stock_data/.
+Distributed under the MIT License. See `LICENSE` for more information.
 
-Configure Parameters: You can adjust the simulation settings in the "Configuration" cell
-
-Analyze Results: Run all cells to view the interactive dashboard and performance logs.
-
-📊 Key Features
-
-Ensemble Learning: Combines fundamental technical analysis with gradient boosting for robust predictions.
-
-Realistic Backtesting: Accounts for intraday volatility by using 15-minute granularity rather than just daily closing prices.
-
-Custom Indicators: Dedicated Indicators class for consistent calculation of RSI, Moving Averages, and Volatility across both notebooks.
-
-
-📝 License
-
-Distributed under the MIT License. See LICENSE for more information.
+```
+```
