@@ -61,7 +61,7 @@ Ensure your directory is organized exactly as follows for the scripts to link co
 
 | Category | Technologies |
 | :--- | :--- |
-| **Language** | Python 3.8+ |
+| **Language** | Python 3.10+ |
 | **Data Analysis** | Pandas, NumPy |
 | **ML & Stats** | XGBoost, Scikit-learn |
 | **Data Source** | yfinance |
